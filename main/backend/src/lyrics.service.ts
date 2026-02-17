@@ -17,14 +17,20 @@ export class LyricsService {
     process.env.SUPABASE_SERVICE_ROLE_KEY as string
   );
 
-  async list(): Promise<LyricRow[]> {
-    const { data, error } = await this.supabase
-      .from('lyrics')
-      .select('*')
-      .order('created_at', { ascending: false });
-    if (error) throw error;
-    return data ?? [];
+
+async list(): Promise<LyricRow[]> {
+  const { data, error } = await this.supabase
+    .from('lyrics')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error('[SUPABASE SELECT ERROR]', error); // ⬅️ TEMP LOG
+    throw error;
   }
+  return data ?? [];
+}
+
 
   async create(input: {
     text: string;
