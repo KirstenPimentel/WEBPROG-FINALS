@@ -1,3 +1,7 @@
+// Provide a modern fetch in Node/Nest (fixes "FetchError: fetch failed" in some setups)
+import { fetch as undiciFetch } from 'undici';
+(globalThis as any).fetch = undiciFetch;
+
 // Load environment variables from main/backend/.env
 import 'dotenv/config';
 
