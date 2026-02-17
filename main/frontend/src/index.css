@@ -1,0 +1,63 @@
+/* The 1975 minimalist dark theme */
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #cfcfcf;
+  --accent: #ff2b85; /* subtle neon pink for small highlights */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* Page layout */
+.app {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+/* Title in the classic centered style */
+.title {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* Lyric card frame inspired by The 1975 white square */
+.lyric-card {
+  border: 2px solid var(--text);
+  padding: 2rem;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.lyric-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.footer-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
