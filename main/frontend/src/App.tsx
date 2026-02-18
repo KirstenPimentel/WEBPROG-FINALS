@@ -1,18 +1,20 @@
 import './index.css';
+import { useState } from 'react';
+import LyricForm from './components/LyricForm';
+import LyricList from './components/LyricList';
 
 function App() {
+  const [refreshToken, setRefreshToken] = useState(0);
+
   return (
     <div className="app">
-      <div>
-        <div className="title">THE 1975 — LYRICS QUOTE BOARD</div>
-        <div className="lyric-card">
-          <div className="lyric-text">
-            “Love me, if that's what you wanna do”
-          </div>
-          <div className="footer-note">
-            This is a placeholder. Soon you'll be able to post your own favorite lyrics.
-          </div>
+      <div style={{ width: '100%' }}>
+        <div className="title" style={{ textAlign: 'center' }}>
+          THE 1975 — LYRICS QUOTE BOARD
         </div>
+
+        <LyricForm onCreated={() => setRefreshToken((n) => n + 1)} />
+        <LyricList refreshToken={refreshToken} />
       </div>
     </div>
   );
